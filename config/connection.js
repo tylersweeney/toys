@@ -7,7 +7,7 @@ var mongoose = require("mongoose");
 // });
 
 // mLab database
-mongoose.connect("mongodb://heroku_l6drmvct:58e0a6rgkm90rdse98d9rj5fc6@ds145208.mlab.com:45208/heroku_l6drmvct", function(err) {
+mongoose.connect("mongodb://test:test@ds237989.mlab.com:37989/heroku_3wsxcs99", function(err) {
 	if(err) throw err;
 	console.log('database connected');
 });
