@@ -6,7 +6,7 @@ $(document).ready(function(){
 	var product = '';
 	var previousProduct = 0;
 	var currentProduct = 0;
-	var nextProduct = 0;	
+	var nextProduct = 0;
 
 	$('#comments').addClass('hidden');
 
@@ -20,7 +20,7 @@ $(document).ready(function(){
 			productList = data;
 			product = productList[0];
 			showProduct(product);
-		}); 		
+		});
 	});
 
 	// Display previous article from the array of articles
@@ -28,20 +28,21 @@ $(document).ready(function(){
 		product = productList[previousProduct];
 		currentProduct = previousProduct;
 		showProduct(product);
-	}); 
+	});
 
 	// Display next article from the array of articles
 	$(document).on('click','.next', function(){
 		product = productList[nextProduct];
 		currentProduct = nextProduct;
 		showProduct(product);
-	}); 
+	});
 
 	// Add comment to article and update comments display
 	$(document).on('click','#addComment', function(){
 		if($('#commentText').val() != '') {
 			var name = $('#name').val();
 			var comment = $('#commentText').val();
+			console.log("PID " + productId);
 			$.post("/addcomment/" + productId, {name: name, comment: comment}, function(e) {
 				e.preventDefault();
 			});
@@ -49,8 +50,8 @@ $(document).ready(function(){
 			$('#commentText').val('');
 			showComments(productId);
 		}
-	});	
-	
+	});
+
 	// Delete comment from article and update comments display
 	$(document).on('click','.deletecomment', function(){
 		commentId = this.id;
@@ -61,7 +62,7 @@ $(document).ready(function(){
 		}).done(function(data){
 		})
 		showComments(productId);
-	});		
+	});
 
 	// Function to build article display
 	var showProduct = function(product) {

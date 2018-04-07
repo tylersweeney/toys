@@ -4,6 +4,9 @@ var commentsSchema = new mongoose.Schema({
 	articleId: {
 		type: String
 	},
+	productId: {
+		type: String
+	},
 	name: {
 		type: String
 	},
@@ -11,7 +14,7 @@ var commentsSchema = new mongoose.Schema({
 		type: String
 	},
 	createdAt: {
-		type: Date, 
+		type: Date,
 		default: Date.now
 	}
 });
